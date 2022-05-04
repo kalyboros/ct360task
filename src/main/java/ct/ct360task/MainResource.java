@@ -1,14 +1,26 @@
 package ct.ct360task;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import ct.ct360task.models.HelloWorlds;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class MainResource {
 
+    @Autowired
+    IHelloWorldService iHelloWorldService;
+
     @GetMapping("/hello-rest")
-    public String helloWorldStringEndpoint() {
-        return "Hello world";
+    public String helloWorldStringEndpoint(@RequestBody String language) {
+
+        List<HelloWorlds> list = new ArrayList<>();
+        list = iHelloWorldService.findByLang(language);
+        //its only one element in the array, but i made it in case there are more entries for same language as in there are more accents
+        String translation = list.get(0).getTranslation();
+    return translation;
     }
 
     @GetMapping("/hello")
@@ -16,7 +28,8 @@ public class MainResource {
         return ("<h1>Hello world</h1>");
     }
 
-    @GetMapping("/user")
+    //TODO: change to post
+    @GetMapping("/secure/hello")
     public String userEndpoint() {
         return ("<h1>Hello user</h1>");
     }
