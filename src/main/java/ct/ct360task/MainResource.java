@@ -15,7 +15,7 @@ public class MainResource {
 
     @GetMapping("/hello-rest")
     public String helloWorldStringEndpoint(@RequestBody String language) {
-
+        //source for this task: https://zetcode.com/springboot/datajpaquery/
         List<HelloWorlds> list = new ArrayList<>();
         list = iHelloWorldService.findByLang(language);
         //its only one element in the array, but i made it in case there are more entries for same language as in there are more accents
