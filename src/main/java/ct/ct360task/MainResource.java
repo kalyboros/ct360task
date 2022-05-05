@@ -1,15 +1,18 @@
 package ct.ct360task;
 
+import ct.ct360task.interfaces.IHelloWorldService;
 import ct.ct360task.models.HelloWorlds;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class MainResource {
-
+    //TODO: reorganize files
     @Autowired
     IHelloWorldService iHelloWorldService;
 
@@ -28,10 +31,12 @@ public class MainResource {
         return ("<h1>Hello world</h1>");
     }
 
-    //TODO: change to post
-    @GetMapping("/secure/hello")
-    public String userEndpoint() {
-        return ("<h1>Hello user</h1>");
+    @RequestMapping("/secure/hello")
+    public RedirectView userEndpoint() {
+        //after a secure login, user gets redirected to webpage so he can insert
+        RedirectView redirect = new RedirectView();
+        redirect.setUrl("/addPair");
+        return redirect;
     }
 
     @GetMapping("/admin")

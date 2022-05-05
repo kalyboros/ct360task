@@ -1,5 +1,6 @@
-package ct.ct360task;
+package ct.ct360task.services;
 
+import ct.ct360task.interfaces.UserRepository;
 import ct.ct360task.models.MyUserDetails;
 import ct.ct360task.models.User;
 import org.springframework.beans.factory.annotation.Autowired;

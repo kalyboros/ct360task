@@ -1,13 +1,12 @@
-package ct.ct360task;
+package ct.ct360task.services;
 
+import ct.ct360task.interfaces.HelloWorldsRepository;
+import ct.ct360task.interfaces.IHelloWorldService;
 import ct.ct360task.models.HelloWorlds;
-import ct.ct360task.models.HelloWorldsDetails;
-import ct.ct360task.models.MyUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class HelloWorldsService implements IHelloWorldService {

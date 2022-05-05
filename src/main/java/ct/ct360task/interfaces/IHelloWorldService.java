@@ -1,4 +1,4 @@
-package ct.ct360task;
+package ct.ct360task.interfaces;
 
 import ct.ct360task.models.HelloWorlds;
 
