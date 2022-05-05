@@ -6,7 +6,7 @@
 * Has /hello endpoint which returns a HTML page with ‘Hello World’ string displayed :heavy_check_mark:
 * Has in-memory H2 database started with initial set of 10 different strings per language (‘Hello World’ in 10 different languages) and /hello endpoints return the string determined by language parameter passed inside the query :heavy_check_mark:
 * Has /secure/hello endpoint that requires user to log in with username and password :heavy_check_mark:
-* Has a secured ‘Admin’ page that allows the user to add new Language-Message pairs into the database :x:
+* Has a secured ‘Admin’ page that allows the user to add new Language-Message pairs into the database :heavy_check_mark:
 * Has an aspect (AOP) that performs logging for different endpoints with useful information included into logs :x:
 * Uses a standalone DB instead of in-memory H2 DB :heavy_check_mark:
 * Has ability to retrieve ‘Hello World’ translations from an external API (eg. Systran Translation API) :x:
