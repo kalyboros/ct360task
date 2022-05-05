@@ -2,6 +2,7 @@ package ct.ct360task.interfaces;
 
 import ct.ct360task.models.HelloWorlds;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -16,4 +17,5 @@ public interface HelloWorldsRepository extends JpaRepository<HelloWorlds, Long> 
 
     //TODO: add save for admin when he inserts new pairs
     //https://stackabuse.com/spring-data-jpa-guide-to-the-query-annotation/
+
 }

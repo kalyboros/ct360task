@@ -1,5 +1,6 @@
 package ct.ct360task;
 
+import ct.ct360task.interfaces.HelloWorldsRepository;
 import ct.ct360task.interfaces.IHelloWorldService;
 import ct.ct360task.models.HelloWorlds;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,9 @@ public class MainResource {
     //TODO: reorganize files
     @Autowired
     IHelloWorldService iHelloWorldService;
+
+    @Autowired
+    HelloWorldsRepository helloWorldsRepository;
 
     @GetMapping("/hello-rest")
     public String helloWorldStringEndpoint(@RequestBody String language) {
@@ -38,9 +42,30 @@ public class MainResource {
         redirect.setUrl("/addPair");
         return redirect;
     }
+/*
+    @PostMapping(
+            value = "/addPairDb", consumes = "application/json", produces = "application/json")
+    public HelloWorlds addPairToDb(@RequestBody HelloWorlds helloWorlds) {
 
-    @GetMapping("/admin")
-    public String adminEndpoint() {
-        return ("<h1>Hello admin</h1>");
+    }
+*/
+    /*
+    //out of the box modern solution
+    @RequestMapping(value = "/addPairDb", method = RequestMethod.POST)
+    @ResponseBody
+    public String set(@RequestParam("id") Integer id ,@RequestParam("lang") String lang,@RequestParam("translation") String translation){
+
+
+        //HelloWorlds newPair = new HelloWorlds(id, lang, translation);
+        //helloWorldsRepository.save(newPair);
+        return lang;
+    }
+    */
+    @PostMapping(value = "/insertPair", consumes = "application/json")
+    public void addPairToDb(@RequestBody HelloWorlds helloWorlds) {
+        helloWorldsRepository.save(helloWorlds);
+        //it does receive correctly from postman
+        System.out.println(helloWorlds.getTranslation());
+        //return helloWorlds.getTranslation();
     }
 }

@@ -2,6 +2,7 @@ package ct.ct360task;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -23,14 +24,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService);
     }
 
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable();// spent 2 hours here :)
+
         http.authorizeRequests()
-                .antMatchers("/admin").hasRole("ADMIN")
                 .antMatchers("/addPair").hasAnyRole("ADMIN", "USER")
                 .antMatchers("/secure/hello").hasAnyRole("ADMIN", "USER")
                 .antMatchers("/hello").permitAll()
                 .antMatchers("/hello-rest").permitAll()
+                .antMatchers("/insertPair").hasAnyRole("ADMIN", "USER")
                 .and().formLogin();
         //TODO: add more endpoints and root
     }

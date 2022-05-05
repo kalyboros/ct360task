@@ -5,10 +5,26 @@
     <title>Admin dash board</title>
 </head>
 <body>
-<form action="http://localhost:8080/hello" method="get">
-    Language: <input type="text" name="Language"><br><br>
-    Text: <input type="text" name="text"><br> <br>
-    <input type="submit" value="Add Pair">
-</form>
+Language: <input type="text" id="language"><br><br>
+Text: <input type="text" id="translation"><br> <br>
+<button type="button" onClick="postPair();">Add pair</button>
+
+<script>
+    function postPair() {
+        const lang = document.getElementById("language").value;
+        const translation = document.getElementById("translation").value;
+
+        //alert(lang + translation);
+
+        let xhr = new XMLHttpRequest();
+        let url = "http://localhost:8080/insertPair";
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        let helloworlds = JSON.stringify({ "lang": lang, "translation": translation });
+        xhr.send(helloworlds);
+
+
+    }
+</script>
 </body>
 </html>
