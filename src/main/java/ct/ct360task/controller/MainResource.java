@@ -1,4 +1,4 @@
-package ct.ct360task;
+package ct.ct360task.controller;
 
 import ct.ct360task.interfaces.HelloWorldsRepository;
 import ct.ct360task.interfaces.IHelloWorldService;
@@ -13,7 +13,8 @@ import java.util.List;
 
 @RestController
 public class MainResource {
-    //TODO: reorganize files
+    //TODO: https://stackoverflow.com/questions/63468269/maven-plugin-not-found-in-intellij-ide
+    // do this if that maven thing gets red in pom, idk why it keeps repeating
     @Autowired
     IHelloWorldService iHelloWorldService;
 
@@ -42,30 +43,11 @@ public class MainResource {
         redirect.setUrl("/addPair");
         return redirect;
     }
-/*
-    @PostMapping(
-            value = "/addPairDb", consumes = "application/json", produces = "application/json")
-    public HelloWorlds addPairToDb(@RequestBody HelloWorlds helloWorlds) {
 
-    }
-*/
-    /*
-    //out of the box modern solution
-    @RequestMapping(value = "/addPairDb", method = RequestMethod.POST)
-    @ResponseBody
-    public String set(@RequestParam("id") Integer id ,@RequestParam("lang") String lang,@RequestParam("translation") String translation){
-
-
-        //HelloWorlds newPair = new HelloWorlds(id, lang, translation);
-        //helloWorldsRepository.save(newPair);
-        return lang;
-    }
-    */
+    //out of the box modern solution, just use .save
     @PostMapping(value = "/insertPair", consumes = "application/json")
     public void addPairToDb(@RequestBody HelloWorlds helloWorlds) {
         helloWorldsRepository.save(helloWorlds);
-        //it does receive correctly from postman
-        System.out.println(helloWorlds.getTranslation());
         //return helloWorlds.getTranslation();
     }
 }

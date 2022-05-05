@@ -20,14 +20,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        //not using ldap, ill use a manager
         auth.userDetailsService(userDetailsService);
     }
 
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable();// spent 2 hours here :)
+        http.csrf().disable();
 
         http.authorizeRequests()
                 .antMatchers("/addPair").hasAnyRole("ADMIN", "USER")
