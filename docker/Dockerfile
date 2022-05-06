@@ -1,7 +1,7 @@
 FROM openjdk:10-jre-slim
 
-WORKDIR /app
-COPY C:/Users/kalyb/Desktop/ct/ct360task/out/artifacts/ct360task_jar/ct360task.jar /app
+WORKDIR /ct360
+COPY ct360task.jar /ct360
 
 EXPOSE 80
 
