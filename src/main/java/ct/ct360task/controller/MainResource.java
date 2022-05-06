@@ -17,7 +17,6 @@ import java.util.List;
 @RestController
 public class MainResource {
     //TODO: https://stackoverflow.com/questions/63468269/maven-plugin-not-found-in-intellij-ide
-    // do this if that maven thing gets red in pom, idk why it keeps repeating
     @Autowired
     IHelloWorldService iHelloWorldService;
     @Autowired
@@ -51,7 +50,7 @@ public class MainResource {
     public void addPairToDb(@RequestBody HelloWorlds helloWorlds) {
         helloWorldsRepository.save(helloWorlds);
     }
-    //TODO: add profile
+
     @GetMapping(value = "/externalTranslation", consumes = "application/json")
     public String externalTranslation(@RequestBody ExternalTranslationPojo etp) throws IOException {
         // https://script.google.com/home/projects/1Nmk0jVhmK_LtrRS32ztKzA4Qv8mdHrH328OtBnRxfdbAEJE6PXbY3jyH/edit

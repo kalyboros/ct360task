@@ -36,7 +36,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/externalTranslation").permitAll()
                 .antMatchers("/insertPair").hasAnyRole("ADMIN", "USER")
                 .and().formLogin();
-        //TODO: add more endpoints and root
     }
 
     @Bean
