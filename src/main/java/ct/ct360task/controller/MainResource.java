@@ -20,7 +20,6 @@ public class MainResource {
     // do this if that maven thing gets red in pom, idk why it keeps repeating
     @Autowired
     IHelloWorldService iHelloWorldService;
-
     @Autowired
     HelloWorldsRepository helloWorldsRepository;
 
@@ -51,17 +50,14 @@ public class MainResource {
     @PostMapping(value = "/insertPair", consumes = "application/json")
     public void addPairToDb(@RequestBody HelloWorlds helloWorlds) {
         helloWorldsRepository.save(helloWorlds);
-        //return helloWorlds.getTranslation();
     }
-    //TODO: add profiles and external api
+    //TODO: add profile
     @GetMapping(value = "/externalTranslation", consumes = "application/json")
     public String externalTranslation(@RequestBody ExternalTranslationPojo etp) throws IOException {
-        //TODO: add to readme
         // https://script.google.com/home/projects/1Nmk0jVhmK_LtrRS32ztKzA4Qv8mdHrH328OtBnRxfdbAEJE6PXbY3jyH/edit
         // i created a custom google script and im using googles free translate api
         Translator translator = new Translator();
         String result = translator.translate(etp.getLangFrom(), etp.getLangTo(), etp.getText());
         return result;
-
     }
 }

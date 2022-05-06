@@ -15,7 +15,4 @@ public interface HelloWorldsRepository extends JpaRepository<HelloWorlds, Long> 
     @Query(value = "SELECT helloworld FROM HelloWorlds helloworld WHERE helloworld.lang = :language")
     List<HelloWorlds> findByLang(String language);
 
-    //TODO: add save for admin when he inserts new pairs
-    //https://stackabuse.com/spring-data-jpa-guide-to-the-query-annotation/
-
 }
