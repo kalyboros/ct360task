@@ -16,7 +16,6 @@ import java.util.List;
 
 @RestController
 public class MainResource {
-    //TODO: https://stackoverflow.com/questions/63468269/maven-plugin-not-found-in-intellij-ide
     @Autowired
     IHelloWorldService iHelloWorldService;
     @Autowired
@@ -24,7 +23,7 @@ public class MainResource {
 
     @GetMapping("/hello-rest")
     public String helloWorldStringEndpoint(@RequestBody String language) {
-        //source for this task: https://zetcode.com/springboot/datajpaquery/
+
         List<HelloWorlds> list = new ArrayList<>();
         list = iHelloWorldService.findByLang(language);
         //its only one element in the array, but i made it in case there are more entries for same language as in there are more accents
