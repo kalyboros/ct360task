@@ -9,7 +9,7 @@
 * Has a secured ‘Admin’ page that allows the user to add new Language-Message pairs into the database :heavy_check_mark:
 * Has an aspect (AOP) that performs logging for different endpoints with useful information included into logs :heavy_check_mark:
 * Uses a standalone DB instead of in-memory H2 DB :heavy_check_mark:
-* Has ability to retrieve ‘Hello World’ translations from an external API (eg. Systran Translation API) :x:
+* Has ability to retrieve ‘Hello World’ translations from an external API (eg. Systran Translation API) :heavy_check_mark:
 * Has ability to switch between DB and external API retrieval by using spring profiles :x:
 * Use standalone DB instead of in-memory H2 :heavy_check_mark:
 * Dockerize the application :x:
@@ -18,3 +18,6 @@
 
 # Personal task explanation and notes 
 Todo
+
+* i used googles free translation api and made a custom google script that serves as a resolver
+* spring profiles have to be manually managed in application.properties before runtime

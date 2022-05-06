@@ -33,6 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/secure/hello").hasAnyRole("ADMIN", "USER")
                 .antMatchers("/hello").permitAll()
                 .antMatchers("/hello-rest").permitAll()
+                .antMatchers("/externalTranslation").permitAll()
                 .antMatchers("/insertPair").hasAnyRole("ADMIN", "USER")
                 .and().formLogin();
         //TODO: add more endpoints and root

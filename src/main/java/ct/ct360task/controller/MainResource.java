@@ -3,13 +3,16 @@ package ct.ct360task.controller;
 import ct.ct360task.interfaces.HelloWorldsRepository;
 import ct.ct360task.interfaces.IHelloWorldService;
 import ct.ct360task.models.HelloWorlds;
+import ct.ct360task.models.ExternalTranslationPojo;
+import ct.ct360task.services.Translator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 
 @RestController
 public class MainResource {
@@ -49,5 +52,16 @@ public class MainResource {
     public void addPairToDb(@RequestBody HelloWorlds helloWorlds) {
         helloWorldsRepository.save(helloWorlds);
         //return helloWorlds.getTranslation();
+    }
+    //TODO: add profiles and external api
+    @GetMapping(value = "/externalTranslation", consumes = "application/json")
+    public String externalTranslation(@RequestBody ExternalTranslationPojo etp) throws IOException {
+        //TODO: add to readme
+        // https://script.google.com/home/projects/1Nmk0jVhmK_LtrRS32ztKzA4Qv8mdHrH328OtBnRxfdbAEJE6PXbY3jyH/edit
+        // i created a custom google script and im using googles free translate api
+        Translator translator = new Translator();
+        String result = translator.translate(etp.getLangFrom(), etp.getLangTo(), etp.getText());
+        return result;
+
     }
 }
