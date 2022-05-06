@@ -33,7 +33,7 @@
 * /hello-rest which receives a text (language) and returns hello world in that language
 * /secure/hello which reroutes user to a login page. After a successful login, user can add a new language pair (he's redirected)
 * /insertPair which receives a json object of a language pair (auto id, language, text) and writes it to db. This api is available only to logged in users.
-* /externalTranslation which receives a json object (language from, language to, text) and returns a translation
+* /externalTranslation which receives a json object (language from, language to, text) and returns a translation, passed in languages should be like "en", "ru", "fr"
 
 #### Reroutes 
 * /addPair successfully logged in user gets redirected to this html page for gui pair insertion
