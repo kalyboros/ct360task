@@ -1,6 +1,6 @@
 ### CT360 interview tasks
 
-#Tasks status
+#Task status
 * Empty working Spring Boot App built with Maven :heavy_check_mark:
 * Has /hello-rest REST endpoint which returns ‘Hello World’ string :heavy_check_mark:
 * Has /hello endpoint which returns a HTML page with ‘Hello World’ string displayed :heavy_check_mark:
