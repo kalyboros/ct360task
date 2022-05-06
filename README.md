@@ -21,6 +21,7 @@
 #### Unfinished tasks
 * spring profiles have to be manually managed in application.properties before runtime (didnt finish)
 * I built the artifact, created a .jar, successfully built a docker image, but when i run it, the following error ocurrs: "no main manifest attribute", yet i package the whole thing and manifest.mf is included.
+* running 2 instances... last task
 
 #### MySQL db
 * name ct
@@ -28,9 +29,9 @@
 * table helloworlds has columns: id, lang, translation, language
 
 #### Endpoints 
-* /hello which returns html page with hello world headings
+* /hello which returns html page with hello world html headings
 * /hello-rest which receives a text (language) and returns hello world in that language
-* /secure/hello which reroutes user to a login page. After a successful login, user can add a new language pair
+* /secure/hello which reroutes user to a login page. After a successful login, user can add a new language pair (he's redirected)
 * /insertPair which receives a json object of a language pair (auto id, language, text) and writes it to db. This api is available only to logged in users.
 * /externalTranslation which receives a json object (language from, language to, text) and returns a translation
 
@@ -41,6 +42,6 @@
 #### AOP logger can be found in logging
 * it is applied to all endpoints that exist and provides info before and after the db operations
 
-#### Rest controller is in controller MainResource.java
+#### Rest controller is in controller.MainResource.java
 
 #### GUI html page for adding pairs is in templates
